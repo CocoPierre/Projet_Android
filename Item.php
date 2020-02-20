@@ -33,6 +33,8 @@ class Item{
         $db = new Database();
         $resultat = 0;
         $mdp = md5($mdp);
+        $mel = mysqli_real_escape_string($db, $_GET['mel']);
+        $mdp = mysqli_real_escape_string($db, $_GET['mdp']);
         $sql= "SELECT * FROM Utilisateurs WHERE mel='$mel' AND mdp='$mdp'";
         foreach($db->query($sql) as $ligne){
             $list=array(
